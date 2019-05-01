@@ -14,9 +14,9 @@ it('Returns formatted date when system date differs', () => {
   expect(format(dateTimeToFormat, systemDateTime)).toBe('14/01/2018');
 });
 
-it('Allows for days 0-9', () => {
+it('Allows for days 0-9, when incorrect date match.', () => {
   const December = 11; //js Date object month is indexed from 0
   const systemDateTime = new Date(2018, December, 4, 10, 5).getTime();
-  const dateTimeToFormat = new Date(2018, December, 4, 12, 50).getTime();
-  expect(format(dateTimeToFormat, systemDateTime)).toBe('04/01/2018');
+  const dateTimeToFormat = new Date(2018, December, 5, 12, 50).getTime();
+  expect(format(dateTimeToFormat, systemDateTime)).toBe('05/12/2018');
 });
